@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./styles.css";
+import React, { useState } from 'react';
+import './styles.css';
 
 // voice recognition variables
 const SpeechRecognition =
@@ -8,7 +8,7 @@ const recognition = new SpeechRecognition();
 
 export default function App() {
   const [text, setText] = useState(
-    "Please click on button to start speech Recognition"
+    'Please click on button to start speech Recognition'
   );
 
   const [count, setCount] = useState(0);
@@ -18,24 +18,34 @@ export default function App() {
   //recognition properties
 
   recognition.onstart = function () {
-    setText("Voice recognition activated. Try speaking into the microphone.");
+    setText('Voice recognition activated. Try speaking into the microphone.');
   };
 
   recognition.onresult = function (event) {
-    setText(" ");
+    setText(' ');
     var current = event.resultIndex;
 
     var transcript = event.results[current][0].transcript;
 
     setText(transcript);
 
-    if (transcript === "next" || transcript === "next next") {
+    if (
+      transcript === 'next' ||
+      transcript === 'next next' ||
+      transcript === 'increment' ||
+      transcript === 'increment increment'
+    ) {
       setCount(count + 1);
-    } else if (transcript === "back" || transcript === "back back") {
+    } else if (
+      transcript === 'back' ||
+      transcript === 'back back' ||
+      transcript === 'decrement' ||
+      transcript === 'decrement decrement'
+    ) {
       setCount(count - 1);
-    } else if (transcript === "stop" || transcript === "stop stop") {
+    } else if (transcript === 'stop' || transcript === 'stopstop') {
       recognition.stop();
-      setText("Voice recognition stopped");
+      setText('Voice recognition stopped');
       setStopReco(true);
     }
   };
@@ -56,7 +66,7 @@ export default function App() {
       recognition.start();
     } else {
       recognition.stop();
-      setText("Voice recognition stopped");
+      setText('Voice recognition stopped');
       setStopReco(true);
     }
   };
@@ -67,7 +77,7 @@ export default function App() {
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <button type="submit">
-          {stopReco ? "Start Recognition" : "Stop Recognition"}
+          {stopReco ? 'Start Recognition' : 'Stop Recognition'}
         </button>
       </form>
 
