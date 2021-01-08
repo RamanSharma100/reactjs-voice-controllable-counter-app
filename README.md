@@ -2,8 +2,10 @@
 this is the voice controllable counter app made with react js which follows following commands:-
 
 1. ## `next` => increment counter
-2. ## `back` => decrement counter
-3. ## `stop` => to stop the recognition
+2. ## `increment` => increment counter
+3. ## `back` => decrement counter
+4. ## `decrement` => decrement counter
+5. ## `stop` => to stop the recognition
 
 To start recogntion you have to press button `Start Recogntion`
 
